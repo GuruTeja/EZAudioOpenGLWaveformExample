@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1v1-63-VYU">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--OpenGL Waveform View Controller-->
+        <scene sceneID="Dby-fz-vJ6">
+            <objects>
+                <viewController id="1v1-63-VYU" customClass="OpenGLWaveformViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FeB-FW-m5f"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Vk-A0-ofK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XwN-5T-qg2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6UW-GB-04u" customClass="EZAudioPlotGL">
+                                <rect key="frame" x="0.0" y="20" width="414" height="246"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="246" id="bpn-sB-oYv"/>
+                                    <constraint firstAttribute="width" constant="414" id="dGY-Ms-j0a"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XVj-h5-jTC">
+                                <rect key="frame" x="282" y="277" width="112" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="112" id="0uI-ke-N4b"/>
+                                    <constraint firstAttribute="height" constant="28" id="WSB-ZW-fNG"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Buffer"/>
+                                    <segment title="Rolling"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changePlotType:" destination="1v1-63-VYU" eventType="valueChanged" id="waP-n9-8PZ"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctj-9N-cJA">
+                                <rect key="frame" x="9" y="307" width="382" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Change Microphone Input">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleMicrophonePickerView:" destination="1v1-63-VYU" eventType="touchUpInside" id="9Cc-I7-eam"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWh-lf-1kw">
+                                <rect key="frame" x="9" y="274" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="pgX-ee-vuK"/>
+                                    <constraint firstAttribute="height" constant="31" id="v5S-wy-mEl"/>
+                                </constraints>
+                                <color key="onTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="toggleMicrophone:" destination="1v1-63-VYU" eventType="touchUpInside" id="ffA-YR-9jD"/>
+                                </connections>
+                            </switch>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcz-Wm-zAv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="5K4-h1-k05"/>
+                                    <constraint firstAttribute="height" constant="82" id="uNM-rm-zLm"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycQ-JZ-KGC">
+                                <rect key="frame" x="98" y="283" width="48" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0Sb-Kd-ax0"/>
+                                    <constraint firstAttribute="height" constant="17" id="OdH-Zu-oeK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6UW-GB-04u" secondAttribute="trailing" id="Aah-Jq-7T8"/>
+                            <constraint firstItem="wWh-lf-1kw" firstAttribute="leading" secondItem="XwN-5T-qg2" secondAttribute="leadingMargin" id="hi7-iT-Cph"/>
+                            <constraint firstItem="XVj-h5-jTC" firstAttribute="trailing" secondItem="XwN-5T-qg2" secondAttribute="trailingMargin" constant="50" id="tpv-4f-0IU"/>
+                            <constraint firstItem="6UW-GB-04u" firstAttribute="leading" secondItem="XwN-5T-qg2" secondAttribute="leadingMargin" id="y9A-3X-l6V"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="audioPlot" destination="6UW-GB-04u" id="fFy-SO-WX1"/>
+                        <outlet property="microphoneInputPickerView" destination="wcz-Wm-zAv" id="qHe-UF-SZ9"/>
+                        <outlet property="microphoneInputToggleButton" destination="ctj-9N-cJA" id="XPV-nW-Wa9"/>
+                        <outlet property="microphoneTextLabel" destination="ycQ-JZ-KGC" id="BG8-nQ-K1r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ua-6O-X9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="89"/>
+        </scene>
+    </scenes>
+</document>
